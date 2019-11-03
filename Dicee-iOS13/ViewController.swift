@@ -15,43 +15,17 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
     }
-
-    func rollRandomly(dice: UIImageView) {
-        let number = Int.random(in: 1...6)
-
-        print("This is the value for => \(number)")
-        
-        switch number {
-        case 1:
-            dice.image = #imageLiteral(resourceName: "DiceOne")
-        
-        case 2:
-            dice.image = #imageLiteral(resourceName: "DiceTwo")
-            
-        case 3:
-            dice.image = #imageLiteral(resourceName: "DiceThree")
-            
-        case 4:
-            dice.image = #imageLiteral(resourceName: "DiceFour")
-        
-        case 5:
-            dice.image = #imageLiteral(resourceName: "DiceFive")
-            
-        case 6:
-            dice.image = #imageLiteral(resourceName: "DiceSix")
-            
-        default:
-            print("...")
-        }
-    }
-    
 
     @IBAction func click(_ sender: Any) {
-        rollRandomly(dice: diceImageView1)
-        rollRandomly(dice: diceImageView2)
+        rollRandomDice(diceImage: diceImageView1)
+        rollRandomDice(diceImage: diceImageView2)
+    }
+    
+    func rollRandomDice(diceImage: UIImageView) {
+        let dice = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")]
+        let random = Int.random(in: 0...5)
+        diceImage.image = dice[random]
     }
 }
 
